@@ -25,6 +25,38 @@
         "version": "3.0.0",
         "channel": "production"
       }
+    },
+    {
+      "entrypoint": "apps/console/instrumentation-client.ts",
+      "harnessKind": "package",
+      "metricsClient": "none",
+      "path": "apps/console",
+      "rolloutCredentialEnv": "FIREWEAVE_BROWSER_KEY",
+      "startProfile": "client",
+      "surface": "web",
+      "surfaceId": "sfc_01M63X7CPW6F421R9NEJ66K8TA",
+      "trackerPath": ".fireweave/stamps.ts",
+      "sdk": {
+        "name": "@fireweaveai/web-sdk",
+        "version": "3.0.0",
+        "channel": "production"
+      }
+    },
+    {
+      "entrypoint": "apps/marketing/instrumentation-client.ts",
+      "harnessKind": "package",
+      "metricsClient": "none",
+      "path": "apps/marketing",
+      "rolloutCredentialEnv": "FIREWEAVE_BROWSER_KEY",
+      "startProfile": "client",
+      "surface": "web",
+      "surfaceId": "sfc_01M63X7CPW6F421R9NEJ66K8TB",
+      "trackerPath": ".fireweave/stamps.ts",
+      "sdk": {
+        "name": "@fireweaveai/web-sdk",
+        "version": "3.0.0",
+        "channel": "production"
+      }
     }
   ],
   "version": 2

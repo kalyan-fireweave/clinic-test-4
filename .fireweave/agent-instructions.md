@@ -11,6 +11,8 @@ code these files point at, not the files.
 | Surface | Control points | Start | Build config | Stamps (`FW_STAMPS`) | How to emit a metric |
 | ------- | -------------- | ----- | ------------ | -------------------- | -------------------- |
 | `apps/api` (ts-server) | `apps/api/src/fireweave/control-points.ts` | `apps/api/src/fireweave/start.ts`, imported first by `apps/api/src/server.ts` | — | `.fireweave/stamps.ts` | `.fireweave/instructions/metrics-apps-api.md` |
+| `apps/console` (web) | `apps/console/fireweave/control-points.ts` | `apps/console/fireweave/start.ts`, imported first by `apps/console/instrumentation-client.ts` | `apps/console/next.config.ts` | `.fireweave/stamps.ts` | `.fireweave/instructions/metrics-apps-console.md` |
+| `apps/marketing` (web) | `apps/marketing/fireweave/control-points.ts` | `apps/marketing/fireweave/start.ts`, imported first by `apps/marketing/instrumentation-client.ts` | `apps/marketing/next.config.ts` | `.fireweave/stamps.ts` | `.fireweave/instructions/metrics-apps-marketing.md` |
 
 No harness module: never add `fw-harness`, `fw-providers` or a second FireWeave setup file.
 
@@ -49,6 +51,18 @@ Read `.fireweave/instructions/manifest-contract.md`: the manifest's exact shape:
 
 Read `.fireweave/instructions/metrics-apps-api.md` before writing an emit call.
 
+## How to emit a metric — `apps/console` (web)
+
+Read `.fireweave/instructions/metrics-apps-console.md` before writing an emit call.
+
+## How to emit a metric — `apps/marketing` (web)
+
+Read `.fireweave/instructions/metrics-apps-marketing.md` before writing an emit call.
+
 ## FireWeave SDK: configuration and overrides (ts-server)
 
 Read `.fireweave/instructions/sdk-ts-server.md`: every start option, its variable and default, the mode rule and the rules for agents.
+
+## FireWeave SDK: configuration and overrides (web)
+
+Read `.fireweave/instructions/sdk-web.md`: every start option, its variable and default, the mode rule and the rules for agents.
