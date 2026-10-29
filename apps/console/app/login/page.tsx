@@ -3,6 +3,7 @@
 import { createAuthClient } from "better-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import { fw } from "@fireweaveai/web-sdk/start";
 import { Button } from "../../components/Button";
 import { COPY } from "../../lib/copy";
 import { ERROR_CODES } from "../../lib/errors";
@@ -18,8 +19,9 @@ export default function LoginPage() {
     setError("");
     setPending(true);
     const form = new FormData(event.currentTarget);
-    const { error: signInError } = await authClient.signIn.email({
-      email: String(form.get("email") ?? ""),
+    const email = String(form.get("email") ?? "");
+    const { data: signInData, error: signInError } = await authClient.signIn.email({
+      email,
       password: String(form.get("password") ?? ""),
     });
     if (signInError) {
@@ -27,6 +29,9 @@ export default function LoginPage() {
       setError(COPY.signInError);
       return;
     }
+    // FireWeave: bind identity at sign-in, unconditionally (never inside a control-point branch).
+    // See .fireweave/agent-instructions.md, "Identity".
+    await fw.identify(signInData.user.id, { email });
     window.location.href = "/inbox";
   }
 
